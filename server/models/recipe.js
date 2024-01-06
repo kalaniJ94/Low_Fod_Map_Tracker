@@ -12,8 +12,8 @@ const recipeSchema = new Schema(
         },
         ingredients: [
             {
-                type: Schema.Types.ObjectId,
-                ref: 'Food',
+                type: String,
+                required: true,
             },
         ],
         instructions: {
