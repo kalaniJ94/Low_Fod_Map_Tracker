@@ -7,7 +7,7 @@ const recipeSchema = new Schema(
             required: true,
         },
         lowFodMap: {
-            type: String,
+            type: Boolean,
             required: true,
         },
         ingredients: [
