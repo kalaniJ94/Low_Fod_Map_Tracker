@@ -2,6 +2,11 @@ const { Schema, model, Types } = require('mongoose');
 
 const recipeSchema = new Schema(
     { 
+        recipeId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId(),
+            required: true,
+        },
         recipeName: {
             type: String,
             required: true,
@@ -12,8 +17,9 @@ const recipeSchema = new Schema(
         },
         ingredients: [
             {
-                type: String,
-                required: true,
+                ingredientName: {
+                    type: String,
+                },
             },
         ],
         instructions: {
@@ -30,3 +36,6 @@ const recipeSchema = new Schema(
         },
     }
 );
+
+const Recipe = model('Recipe', recipeSchema);
+module.exports = Recipe;

@@ -6,7 +6,8 @@ const auth = require('../utils/auth');
 module.exports = {
     async createRecipe(req,res) {
         try { 
-            authMiddleware(req,res, async () => {
+            // authMiddleware
+            (req,res, async () => {
                 // find a user and update the user's recipes array
                 const userRecipes = await Recipe.findOneAndUpdate
                 (
@@ -18,7 +19,7 @@ module.exports = {
                     return res.status(404).json({ message: 'No user found with this id!' });
                 }
             })
-            res.status(200).json({ message: 'Recipe created!' });
+           return res.status(200).json({ message: 'Recipe created!' });
         }
         catch (err) {
             console.log(err);
@@ -27,7 +28,8 @@ module.exports = {
     },
     async deleteRecipe(req,res) {
         try {
-            authMiddleware(req,res, async () => {
+            // authMiddleware
+            (req,res, async () => {
                 // find a user and update the user's recipes array
                 const userRecipes = await Recipe.findOneAndUpdate
                 (
@@ -39,7 +41,7 @@ module.exports = {
                     return res.status(404).json({ message: 'No user found with this id!' });
                 }
             })
-            res.status(200).json({ message: 'Recipe deleted!' });
+            return res.status(200).json({ message: 'Recipe deleted!' });
         }
         catch (err) {
             console.log(err);
@@ -48,11 +50,11 @@ module.exports = {
     },
     async updateRecipe(req,res) {
         try {
-            authMiddleware(req,res, async () => {
+            // authMiddleware
+            (req,res, async () => {
                 // find a user and updates one recipe in a users recipes array
                 const userRecipes = await Recipe.findOneAndUpdate
                 (
-                    { _id: req.params.userId },
                     { $set: { recipes: req.body } },
                     { new: true }
                 );
@@ -60,7 +62,7 @@ module.exports = {
                     return res.status(404).json({ message: 'No user found with this id!' });
                 }
             })
-            res.status(200).json({ message: 'Recipe updated!' });
+           return res.status(200).json({ message: 'Recipe updated!' });
         }
         catch (err) {
             console.log(err);
@@ -70,17 +72,15 @@ module.exports = {
     async getRecipe(req,res) {
         try {
             authMiddleware(req,res, async () => {
-                // find one recipe from a user's recipes array
                 const userRecipes = await Recipe.findOne
                 (
-                    { _id: req.params.userId },
                     { recipes: { _id: req.params.recipeId } },
                 );
                 if (!userRecipes) {
                     return res.status(404).json({ message: 'No user found with this id!' });
                 }
+                 return res.status(200).json({userRecipes, message: 'Recipe found!' });
             })
-            res.status(200).json({ message: 'Recipe found!' });
         }
         catch (err) {
             console.log(err);
@@ -89,17 +89,12 @@ module.exports = {
     }, async getAllRecipes(req,res) {
         try {
             authMiddleware(req,res, async () => {
-                // finds all recipes from a user's recipes array
-                const userRecipes = await Recipe.findOne
-                (
-                    { _id: req.params.userId },
-                    { recipes: { _id: req.params.recipeId } },
-                );
+                const userRecipes = await Recipe.find({});
                 if (!userRecipes) {
                     return res.status(404).json({ message: 'No user found with this id!' });
                 }
+                return res.status(200).json({userRecipes, message: 'Recipe found!' });
             })
-            res.status(200).json({ message: 'Recipe found!' });
         }
         catch (err) {
             console.log(err);
