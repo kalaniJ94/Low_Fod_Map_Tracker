@@ -1,7 +1,7 @@
 
 function Nav({ activePage, setActivePage }) {
     return (
-        <div className="nav">
+        <header className="nav">
             <ul className="nav-tabs">
                 <li className="nav-item">
                     <a href='/home' className={activePage === 'home' ? 'nav-link active' : 'nav-link'} onClick={() => setActivePage('home')}>Home</a>
@@ -13,7 +13,7 @@ function Nav({ activePage, setActivePage }) {
                     <a href='/ingredients' className={activePage === 'ingredients' ? 'nav-link active' : 'nav-link'} onClick={() => setActivePage('ingredients')}>Ingredients</a>
                 </li>
             </ul>
-        </div>
+        </header>
     )
 }
 
