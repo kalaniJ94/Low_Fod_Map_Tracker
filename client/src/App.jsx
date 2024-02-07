@@ -10,10 +10,8 @@ function App() {
   return (
     <>
      <StrictMode>
-      <Nav/>
       <Outlet />
      </StrictMode>
-     <Footer />
     </>
   )
 }

@@ -1,7 +1,11 @@
+import { React, useState } from 'react';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 function Nav({ activePage, setActivePage }) {
     return (
-        <header className="nav">
+        <Container>
+            <Row className="justify-content-md-center">
+        <header className="nav" >
             <ul className="nav-tabs">
                 <li className="nav-item">
                     <a href='/home' className={activePage === 'home' ? 'nav-link active' : 'nav-link'} onClick={() => setActivePage('home')}>Home</a>
@@ -14,6 +18,8 @@ function Nav({ activePage, setActivePage }) {
                 </li>
             </ul>
         </header>
+                </Row>
+        </Container>
     )
 }
 
