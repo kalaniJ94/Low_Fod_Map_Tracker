@@ -1,5 +1,7 @@
 import {useState} from 'react';
-import { Form, Button, Alert, Col } from 'react-bootstrap';
+import { Form, Button, Alert, Col, Container, Row } from 'react-bootstrap';
+import { createRecipe } from '../utils/API';
+import CreatedRecipes from './CreatedRecipes';
 
 const RecipeForm = () => {
     const [userFormData, setUserFormData ] =  useState({ recipeName: '', lowFodMap: '', ingredients: '', instructions: '', category: '', rating: ''});
@@ -64,7 +66,7 @@ const RecipeForm = () => {
                     <Form.Label>Rating</Form.Label>
                     <Form.Control type='text' name='rating' value={userFormData.rating} onChange={handleInputChange}  />
                 </Form.Group>
-                <Button variant='primary' type='submit'>
+                <Button disabled variant='primary' type='submit'>
                     Create
                 </Button>
                 </Form>
@@ -72,6 +74,17 @@ const RecipeForm = () => {
                     Something went wrong with your submission. Please try again.
                 </Alert> : null}
         </div>
+
+            <Row>
+                <h2>Created Recipes</h2>
+            </Row>
+        <Container>
+            <Row>
+                <Col>
+                <CreatedRecipes recipes={recipes} />
+                </Col>
+            </Row>
+        </Container>
         </>
     )
 };
