@@ -18,3 +18,5 @@ function RecipeCard({ recipe, name, description, image}) {
     </Card>
   );
 }
+
+export default RecipeCard;

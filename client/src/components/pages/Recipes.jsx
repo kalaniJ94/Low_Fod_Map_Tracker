@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Nav from './Nav';
 import RecipeForm from '../RecipeForm';
+import RecipeCard from '../CreatedRecipes';
 import { Form, Button } from 'react-bootstrap';  
 
 function Recipes(){
@@ -9,6 +10,7 @@ function Recipes(){
     <div>
       <Nav />
       <RecipeForm />
+<      RecipeCard />
     </div>
     </>
   )
