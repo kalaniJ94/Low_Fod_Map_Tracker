@@ -11,8 +11,8 @@ function App() {
   return (
     <>
      <StrictMode>
+      <Nav/>
       <Outlet />
-      <Home />
      </StrictMode>
     </>
   )

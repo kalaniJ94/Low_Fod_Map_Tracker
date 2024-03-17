@@ -13,7 +13,9 @@ function RecipeCard({ recipe, name, description, image}) {
   return (
     <Card>
       <Card.Body>
-        <Card.Title onClick={expandCard}>{recipe.name}</Card.Title>
+        <Card.Title 
+        onClick={expandCard}>{recipe.name}
+        </Card.Title>
       </Card.Body>
     </Card>
   );

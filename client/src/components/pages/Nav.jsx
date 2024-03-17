@@ -3,8 +3,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 function Nav({ activePage, setActivePage }) {
     return (
-        <Container>
-            <Row className="justify-content-md-center">
+        <Container id='navBar'>
         <header className="nav" >
             <ul className="nav-tabs">
                 <li className="nav-item">
@@ -18,7 +17,6 @@ function Nav({ activePage, setActivePage }) {
                 </li>
             </ul>
         </header>
-                </Row>
         </Container>
     )
 }

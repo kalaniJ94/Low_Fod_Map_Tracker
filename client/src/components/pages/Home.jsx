@@ -5,9 +5,7 @@ import Nav from './Nav';
 function Home() {
     return (
         <>
-        <header>      <Nav/>
-</header>
-        <div className="home">
+        <div className="home" >
             <h1>Home</h1>
             <p>Welcome to the home page!</p>
         </div>
