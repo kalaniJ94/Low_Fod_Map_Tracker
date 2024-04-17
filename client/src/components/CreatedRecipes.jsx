@@ -6,15 +6,11 @@ import { Card } from "react-bootstrap";
 
 function RecipeCard({ recipe, name, description, image}) {
 
-    const expandCard = () => {
-        console.log('clicked');
-    }
 
   return (
     <Card>
       <Card.Body>
-        <Card.Title 
-        onClick={expandCard}>{recipe.name}
+        <Card.Title>
         </Card.Title>
       </Card.Body>
     </Card>
