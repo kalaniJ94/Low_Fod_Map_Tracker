@@ -7,7 +7,7 @@ function Home() {
         <>
         <div className="home" >
             <h1>Home</h1>
-            <p>Welcome to the home page!</p>
+            <p>Welcome to the home page! Use the links above to navigate through the app. </p>
         </div>
         <Footer />
         </>

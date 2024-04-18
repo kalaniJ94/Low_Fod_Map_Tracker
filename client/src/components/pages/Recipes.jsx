@@ -8,7 +8,6 @@ function Recipes(){
   return (
     <>
     <div>
-      <Nav />
       <RecipeForm />
 <      RecipeCard />
     </div>
